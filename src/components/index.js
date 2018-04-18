@@ -1,11 +1,19 @@
+// React
 import React, { Component } from 'react';
 import { Route, HashRouter, Link, Redirect, Switch } from 'react-router-dom';
+
+// Custom Components
 import Login from './Login';
 import Register from './Register';
 import Home from './Home';
 import Dashboard from './protected/Dashboard';
+import Live from './Live';
+
+// Helpers and Constants
 import { logout } from '../helpers/auth';
 import { firebaseAuth } from '../config/constants';
+
+// Material UI
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -90,6 +98,9 @@ export default class App extends Component {
         <Link to="/dashboard">
           <FlatButton label="dashboard" style={{ color: '#fff' }} />
         </Link>
+        <Link to="/live">
+          <FlatButton label="Live" style={{ color: '#fff' }} />
+        </Link>
         {authButtons}
       </div>
     );
@@ -99,7 +110,7 @@ export default class App extends Component {
       <HashRouter>
         <div>
           <AppBar
-            title="My App"
+            title="Sanford Plaza"
             iconElementRight={topbarButtons}
             iconStyleRight={{
               display: 'flex',
@@ -120,6 +131,11 @@ export default class App extends Component {
                   authed={this.state.authed}
                   path="/register"
                   component={Register}
+                />
+                <PublicRoute
+                  authed={this.state.authed}
+                  path="/live"
+                  component={Live}
                 />
                 <PrivateRoute
                   authed={this.state.authed}
