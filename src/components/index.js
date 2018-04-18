@@ -8,6 +8,7 @@ import Register from './Register';
 import Home from './Home';
 import Dashboard from './protected/Dashboard';
 import Live from './Live';
+import Neighborhood from './Neighborhood';
 
 // Helpers and Constants
 import { logout } from '../helpers/auth';
@@ -101,6 +102,9 @@ export default class App extends Component {
         <Link to="/live">
           <FlatButton label="Live" style={{ color: '#fff' }} />
         </Link>
+        <Link to="/neighborhood">
+          <FlatButton label="Neighborhood" style={{ color: '#fff' }} />
+        </Link>
         {authButtons}
       </div>
     );
@@ -136,6 +140,11 @@ export default class App extends Component {
                   authed={this.state.authed}
                   path="/live"
                   component={Live}
+                />
+                <PublicRoute
+                  authed={this.state.authed}
+                  path="/neighborhood"
+                  component={Neighborhood}
                 />
                 <PrivateRoute
                   authed={this.state.authed}
