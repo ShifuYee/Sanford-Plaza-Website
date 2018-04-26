@@ -3,3 +3,38 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.homepage {
+  background-image: url(./images/Sanford_Plaza_Sign.jpg);
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: table;
+  background-position: center center;
+  z-index: 0;
+}
+
+.title-home {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  padding: 0;
+}
+
+.title-40 {
+  line-height: 45px;
+  font-size: 40px;
+  color: #cecece;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+.info-home {
+  color: #cecece
+}
+
+.row {
+  margin: 0 auto;
+  max-width: 60.25rem;
+}
