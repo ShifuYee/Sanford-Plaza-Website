@@ -8,6 +8,7 @@ import Register from './Register';
 import Home from './Home';
 import Dashboard from './protected/Dashboard';
 import Live from './Live';
+import Footer from './Footer';
 import Neighborhood from './Neighborhood';
 
 // Helpers and Constants
@@ -155,6 +156,7 @@ export default class App extends Component {
               </Switch>
             </div>
           </div>
+          <Footer />
         </div>
       </HashRouter>
     );
