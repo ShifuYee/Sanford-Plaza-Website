@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 
-const divStyle = {
-  height: '925px'
-}
-
 export default class Home extends Component {  
 
   render() {
     return (
-      <section className="homepage" style={divStyle} >
+      <section className="homepage" >
         <div className="title-home">
-          <div className="row">
+          <div className="title-row">
             <h1 className="title-40">
               Sanford Plaza
             </h1>
