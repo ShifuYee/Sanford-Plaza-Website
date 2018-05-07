@@ -6,7 +6,7 @@ body {
 
 .homepage {
   background-image: url(./images/Sanford_Plaza_Sign.jpg);
-  height: 925px;
+  height: 700px;
   width: 100%;
   position: relative;
   background-size: cover;
@@ -14,6 +14,10 @@ body {
   display: table;
   background-position: center center;
   z-index: 0;
+}
+
+.newpage {
+  height: 700px;
 }
 
 .title-home {
