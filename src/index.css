@@ -5,7 +5,6 @@ body {
 }
 
 .homepage {
-  background-image: url(./images/Sanford_Plaza_Sign.jpg);
   height: 700px;
   width: 100%;
   position: relative;
@@ -40,10 +39,6 @@ body {
   color: #6ed1f8;
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
-}
-
-.info-home {
-  color: #cecece
 }
 
 footer {
