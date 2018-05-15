@@ -5,7 +5,7 @@ body {
 }
 
 .homepage {
-  background-image: url(./images/Sanford_Plaza_Sign.jpg);
+  height: 700px;
   width: 100%;
   position: relative;
   background-size: cover;
@@ -15,11 +15,22 @@ body {
   z-index: 0;
 }
 
+.newpage {
+  height: 700px;
+}
+
 .title-home {
   display: table-cell;
   vertical-align: middle;
   text-align: left;
   padding: 0;
+}
+
+.title-20 {
+  font-size: 20px;
+  color: #6ed1f8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
 }
 
 .title-40 {
@@ -30,21 +41,16 @@ body {
   font-style: italic;
 }
 
-.info-home {
-  color: #cecece
-}
-
-.row {
-  margin: 0 auto;
-  max-width: 60.25rem;
-}
-
 footer {
   height: 300px;
   padding: 40px 6px 5px 6px;
   box-sizing: border-box;
   display: table;
   margin: auto;
+}
+
+.container {
+  display: flex;
 }
 
 .row {
@@ -54,4 +60,9 @@ footer {
 .column {
   flex: 50%;
   padding: 10;
+}
+
+.footer-bg {
+  background: #8497b0;
+  width: 100%;
 }
