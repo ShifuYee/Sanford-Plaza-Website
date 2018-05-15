@@ -4,12 +4,9 @@ import { Route, HashRouter, Link, Redirect, Switch } from 'react-router-dom';
 
 // Custom Components
 import Login from './Login';
-import Register from './Register';
 import Home from './Home';
 import Dashboard from './protected/Dashboard';
-import Live from './Live';
 import Footer from './Footer';
-import Neighborhood from './Neighborhood';
 
 // Helpers and Constants
 import { logout } from '../helpers/auth';
@@ -86,9 +83,6 @@ export default class App extends Component {
         <Link to="/login">
           <FlatButton label="Login" style={{ color: '#fff' }} />
         </Link>
-        <Link to="/register">
-          <FlatButton label="Register" style={{ color: '#fff' }} />
-        </Link>
       </span>
     );
 
@@ -99,12 +93,6 @@ export default class App extends Component {
         </Link>
         <Link to="/dashboard">
           <FlatButton label="dashboard" style={{ color: '#fff' }} />
-        </Link>
-        <Link to="/live">
-          <FlatButton label="Live" style={{ color: '#fff' }} />
-        </Link>
-        <Link to="/neighborhood">
-          <FlatButton label="Neighborhood" style={{ color: '#fff' }} />
         </Link>
         {authButtons}
       </div>
@@ -131,21 +119,6 @@ export default class App extends Component {
                   authed={this.state.authed}
                   path="/login"
                   component={Login}
-                />
-                <PublicRoute
-                  authed={this.state.authed}
-                  path="/register"
-                  component={Register}
-                />
-                <PublicRoute
-                  authed={this.state.authed}
-                  path="/live"
-                  component={Live}
-                />
-                <PublicRoute
-                  authed={this.state.authed}
-                  path="/neighborhood"
-                  component={Neighborhood}
                 />
                 <PrivateRoute
                   authed={this.state.authed}

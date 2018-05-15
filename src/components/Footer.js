@@ -18,15 +18,11 @@ export default class Footer extends Component {
         </div>
         <div className="col-md-4 col-sm-6">
           <h5 className="title-20">
-            Main Address:
+            Addresses:
           </h5>
           <h6>
             144-54 Sanford Ave, Flushing, NY 11355
           </h6>
-          <br />
-          <h5 className="title-20">
-            Remaining 3 building addresses are:
-          </h5>
           <h6>
             144-58 Sanford Ave, Flushing, NY 11355
           </h6>
