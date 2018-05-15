@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
+import Sanford_Plaza_Sign from '../images/Sanford_Plaza_Sign.jpg';
+import Sanford_Courtyard_1 from '../images/Sanford_Courtyard_1.jpg';
+import Sanford_Courtyard_2 from '../images/Sanford_Courtyard_2.jpg';
 
 export default class Home extends Component {  
 
@@ -10,7 +13,7 @@ export default class Home extends Component {
         <div style={styles.root}>
           <GridList
             cols={2}
-            cellHeight={400}
+            cellHeight={300}
             padding={1}
             style={styles.gridList}
           >
@@ -62,16 +65,18 @@ const styles = {
 
 const tilesData = [
   {
-    img: '../src/image/Sanford_Plaza_Sign.jpg',
+    img: Sanford_Plaza_Sign,
     title: 'Sanford_Plaza_Sign',
     featured: true,
   },
   {
-    img: '../src/images/Sanford_Courtyard_1.jpg',
+    img: Sanford_Courtyard_1,
     title: 'Sanford_Courtyard_1',
+    featured: true,
   },
   {
-    img: '../src/images/Sanford_Courtyard_2.jpg',
+    img: Sanford_Courtyard_2,
     title: 'Sanford_Courtyard_2',
+    featured: true,
   },
 ];
