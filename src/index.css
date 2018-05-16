@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,11 +12,7 @@ body {
   height: 700px;
   width: 100%;
   position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
   display: table;
-  background-position: center center;
-  z-index: 0;
 }
 
 .newpage {
@@ -59,10 +59,27 @@ footer {
 
 .column {
   flex: 50%;
-  padding: 10;
+  padding: 10px;
 }
 
 .footer-bg {
   background: #8497b0;
   width: 100%;
+}
+
+.rotate-img-90 {
+  -webkit-transform:rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.home-image {
+  flex: 50%;
+  padding: 5px;
+}
+
+.home-images {
+  overflow: hidden;
 }
