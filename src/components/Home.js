@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {GridList, GridTile} from 'material-ui/GridList';
 import Sanford_Plaza_Sign from '../images/Sanford_Plaza_Sign.jpg';
 import Sanford_Courtyard_1 from '../images/Sanford_Courtyard_1.jpg';
 import Sanford_Courtyard_2 from '../images/Sanford_Courtyard_2.jpg';
@@ -11,10 +10,10 @@ export default class Home extends Component {
       <section className="homepage" >
         <div className="row">
           <div class="column">
-            <img className="rotate-img-90" src={Sanford_Courtyard_1} />
+            <img className="rotate-img-90 home-image" src={Sanford_Courtyard_1} />
           </div>
           <div class="column">
-            <img src={Sanford_Plaza_Sign} />
+            <img className="home-image" src={Sanford_Plaza_Sign} />
           </div>
         </div>
         <div className="title-row">
