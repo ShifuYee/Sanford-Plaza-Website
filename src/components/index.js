@@ -7,6 +7,7 @@ import Login from './Login';
 import Home from './Home';
 import Footer from './Footer';
 import SplashScreen from './SplashScreen';
+import AppDrawer from './AppDrawer';
 
 // Helpers and Constants
 import { logout } from '../helpers/auth';
@@ -121,11 +122,6 @@ export default class App extends Component {
                   authed={this.state.authed}
                   path="/login"
                   component={Login}
-                />
-                <PrivateRoute
-                  authed={this.state.authed}
-                  path="/dashboard"
-                  component={Dashboard}
                 />
                 <Route render={() => <h3>No Match</h3>} />
               </Switch>
