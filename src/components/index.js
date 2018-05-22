@@ -8,6 +8,8 @@ import Home from './Home';
 import Footer from './Footer';
 import SplashScreen from './SplashScreen';
 import AppDrawer from './AppDrawer';
+import News from './protected/News';
+import Forms from './protected/Forms';
 
 // Helpers and Constants
 import { logout } from '../helpers/auth';
@@ -53,6 +55,7 @@ export default class App extends Component {
     loading: true,
     open: false,
     tabIndex: 1,
+    user: null
   };
 
   handleTabChange = (value) => {
@@ -72,12 +75,14 @@ export default class App extends Component {
       if (user) {
         this.setState({
           authed: true,
-          loading: false
+          loading: false,
+          user: user
         });
       } else {
         this.setState({
           authed: false,
-          loading: false
+          loading: false,
+          user: null,
         });
       }
     });
@@ -104,14 +109,6 @@ export default class App extends Component {
       </span>
     );
 
-    const topbarButtons = (
-      <div>
-        <Link to="/">
-          <FlatButton label="Home" style={{ color: '#fff' }} />
-        </Link>
-        {authButtons}
-      </div>
-    );
     return this.state.loading === true ? (
       <SplashScreen />
     ) : (
@@ -125,7 +122,7 @@ export default class App extends Component {
           <AppBar
             title="Sanford Plaza"
             onLeftIconButtonTouchTap={this.handleToggle}
-            iconElementRight={topbarButtons}
+            iconElementRight={authButtons}
             iconStyleRight={{
               display: 'flex',
               alignItems: 'center',
@@ -140,6 +137,18 @@ export default class App extends Component {
                   authed={this.state.authed}
                   path="/login"
                   component={Login}
+                />
+                <PrivateRoute
+                  authed={this.state.authed}
+                  path="/news"
+                  component={News}
+                  user={this.state.user}
+                />
+                <PrivateRoute
+                  authed={this.state.authed}
+                  path="/forms"
+                  component={Forms}
+                  user={this.state.user}
                 />
                 <Route render={() => <h3>No Match</h3>} />
               </Switch>
