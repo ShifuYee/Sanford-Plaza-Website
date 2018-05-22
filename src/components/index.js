@@ -50,8 +50,23 @@ function PublicRoute({ component: Component, authed, ...rest }) {
 export default class App extends Component {
   state = {
     authed: false,
-    loading: true
+    loading: true,
+    open: false,
+    tabIndex: 1,
   };
+
+  handleTabChange = (value) => {
+    this.setState({ tabIndex: value });
+  };
+
+  handleToggle = () => {
+    this.setState({ open: !this.state.open })
+  };
+
+  handleClose = () => {
+    this.setState({ open: false })
+  };
+
   componentDidMount() {
     this.removeListener = firebaseAuth().onAuthStateChanged(user => {
       if (user) {
@@ -66,10 +81,12 @@ export default class App extends Component {
         });
       }
     });
-  }
+  };
+
   componentWillUnmount() {
     this.removeListener();
-  }
+  };
+
   render() {
     const authButtons = this.state.authed ? (
       <FlatButton
@@ -107,6 +124,7 @@ export default class App extends Component {
           />
           <AppBar
             title="Sanford Plaza"
+            onLeftIconButtonTouchTap={this.handleToggle}
             iconElementRight={topbarButtons}
             iconStyleRight={{
               display: 'flex',
@@ -131,5 +149,5 @@ export default class App extends Component {
         </div>
       </HashRouter>
     );
-  }
+  };
 }
