@@ -5,8 +5,8 @@ import { Route, HashRouter, Link, Redirect, Switch } from 'react-router-dom';
 // Custom Components
 import Login from './Login';
 import Home from './Home';
-import Dashboard from './protected/Dashboard';
 import Footer from './Footer';
+import SplashScreen from './SplashScreen';
 
 // Helpers and Constants
 import { logout } from '../helpers/auth';
@@ -40,7 +40,7 @@ function PublicRoute({ component: Component, authed, ...rest }) {
         authed === false ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/dashboard" />
+          <Redirect to="/" />
         )}
     />
   );
@@ -91,17 +91,19 @@ export default class App extends Component {
         <Link to="/">
           <FlatButton label="Home" style={{ color: '#fff' }} />
         </Link>
-        <Link to="/dashboard">
-          <FlatButton label="dashboard" style={{ color: '#fff' }} />
-        </Link>
         {authButtons}
       </div>
     );
     return this.state.loading === true ? (
-      <h1>Loading</h1>
+      <SplashScreen />
     ) : (
       <HashRouter>
         <div>
+          <AppDrawer
+            open={this.state.open}
+            handleClose={this.handleClose}
+            handleToggle={this.handleToggle}
+          />
           <AppBar
             title="Sanford Plaza"
             iconElementRight={topbarButtons}
