@@ -9,10 +9,10 @@ export default class Home extends Component {
     return (
       <section className="homepage" >
         <div className="row">
-          <div class="column">
+          <div className="column">
             <img className="rotate-img-90 home-image" src={Sanford_Courtyard_1} />
           </div>
-          <div class="column">
+          <div className="column">
             <img className="home-image" src={Sanford_Plaza_Sign} />
           </div>
         </div>

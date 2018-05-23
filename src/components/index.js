@@ -5,8 +5,11 @@ import { Route, HashRouter, Link, Redirect, Switch } from 'react-router-dom';
 // Custom Components
 import Login from './Login';
 import Home from './Home';
-import Dashboard from './protected/Dashboard';
 import Footer from './Footer';
+import SplashScreen from './SplashScreen';
+import AppDrawer from './AppDrawer';
+import News from './protected/News';
+import Forms from './protected/Forms';
 
 // Helpers and Constants
 import { logout } from '../helpers/auth';
@@ -40,7 +43,7 @@ function PublicRoute({ component: Component, authed, ...rest }) {
         authed === false ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/dashboard" />
+          <Redirect to="/" />
         )}
     />
   );
@@ -49,26 +52,46 @@ function PublicRoute({ component: Component, authed, ...rest }) {
 export default class App extends Component {
   state = {
     authed: false,
-    loading: true
+    loading: true,
+    open: false,
+    tabIndex: 1,
+    user: null
   };
+
+  handleTabChange = (value) => {
+    this.setState({ tabIndex: value });
+  };
+
+  handleToggle = () => {
+    this.setState({ open: !this.state.open })
+  };
+
+  handleClose = () => {
+    this.setState({ open: false })
+  };
+
   componentDidMount() {
     this.removeListener = firebaseAuth().onAuthStateChanged(user => {
       if (user) {
         this.setState({
           authed: true,
-          loading: false
+          loading: false,
+          user: user
         });
       } else {
         this.setState({
           authed: false,
-          loading: false
+          loading: false,
+          user: null,
         });
       }
     });
-  }
+  };
+
   componentWillUnmount() {
     this.removeListener();
-  }
+  };
+
   render() {
     const authButtons = this.state.authed ? (
       <FlatButton
@@ -86,25 +109,20 @@ export default class App extends Component {
       </span>
     );
 
-    const topbarButtons = (
-      <div>
-        <Link to="/">
-          <FlatButton label="Home" style={{ color: '#fff' }} />
-        </Link>
-        <Link to="/dashboard">
-          <FlatButton label="dashboard" style={{ color: '#fff' }} />
-        </Link>
-        {authButtons}
-      </div>
-    );
     return this.state.loading === true ? (
-      <h1>Loading</h1>
+      <SplashScreen />
     ) : (
       <HashRouter>
         <div>
+          <AppDrawer
+            open={this.state.open}
+            handleClose={this.handleClose}
+            handleToggle={this.handleToggle}
+          />
           <AppBar
             title="Sanford Plaza"
-            iconElementRight={topbarButtons}
+            onLeftIconButtonTouchTap={this.handleToggle}
+            iconElementRight={authButtons}
             iconStyleRight={{
               display: 'flex',
               alignItems: 'center',
@@ -122,8 +140,15 @@ export default class App extends Component {
                 />
                 <PrivateRoute
                   authed={this.state.authed}
-                  path="/dashboard"
-                  component={Dashboard}
+                  path="/news"
+                  component={News}
+                  user={this.state.user}
+                />
+                <PrivateRoute
+                  authed={this.state.authed}
+                  path="/forms"
+                  component={Forms}
+                  user={this.state.user}
                 />
                 <Route render={() => <h3>No Match</h3>} />
               </Switch>
@@ -133,5 +158,5 @@ export default class App extends Component {
         </div>
       </HashRouter>
     );
-  }
+  };
 }
