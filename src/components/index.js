@@ -9,7 +9,9 @@ import Footer from './Footer';
 import SplashScreen from './SplashScreen';
 import AppDrawer from './AppDrawer';
 import News from './protected/News';
-import Forms from './protected/Forms';
+import SalesSublet from './protected/SalesSublet';
+import Parking from './protected/Parking';
+import AdditionalForms from './protected/AdditionalForms';
 
 // Helpers and Constants
 import { logout } from '../helpers/auth';
@@ -146,8 +148,20 @@ export default class App extends Component {
                 />
                 <PrivateRoute
                   authed={this.state.authed}
-                  path="/forms"
-                  component={Forms}
+                  path="/sales_sublet"
+                  component={SalesSublet}
+                  user={this.state.user}
+                />
+                <PrivateRoute
+                  authed={this.state.authed}
+                  path="/parking"
+                  component={Parking}
+                  user={this.state.user}
+                />
+                <PrivateRoute
+                  authed={this.state.authed}
+                  path="/additional"
+                  component={AdditionalForms}
                   user={this.state.user}
                 />
                 <Route render={() => <h3>No Match</h3>} />
