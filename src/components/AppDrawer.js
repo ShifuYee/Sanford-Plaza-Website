@@ -40,6 +40,12 @@ export default class AppDrawer extends Component {
                 onClick={this.props.handleClose} 
               />
             </Link>
+            <Link to="/additional">
+              <ListItem 
+                primaryText="Additional Forms"
+                onClick={this.props.handleClose} 
+              />
+            </Link>
           </List>
         </Drawer>
       </div>
