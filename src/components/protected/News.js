@@ -5,7 +5,6 @@ import List from 'material-ui/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/InsertDriveFile';
 
 // Documents
@@ -63,7 +62,6 @@ export default class News extends Component {
             </a>
           </ListItem>
         </List>
-
         <h1>Postings and Notices</h1>
         <List component="nav">
           <ListItem button>

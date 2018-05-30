@@ -9,7 +9,7 @@ import Footer from './Footer';
 import SplashScreen from './SplashScreen';
 import AppDrawer from './AppDrawer';
 import News from './protected/News';
-import Forms from './protected/Forms';
+import Sales from './protected/Sales';
 
 // Helpers and Constants
 import { logout } from '../helpers/auth';
@@ -146,8 +146,8 @@ export default class App extends Component {
                 />
                 <PrivateRoute
                   authed={this.state.authed}
-                  path="/forms"
-                  component={Forms}
+                  path="/sales"
+                  component={Sales}
                   user={this.state.user}
                 />
                 <Route render={() => <h3>No Match</h3>} />
